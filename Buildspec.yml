@@ -1,0 +1,13 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - docker version
+      - $(aws ecr get-login --no-include-email)
+      - docker pull $IMAGE_URL:$IMAGE_TAG || true
+  build:
+    commands:
+      - docker build --cache-from $IMAGE_URL:$IMAGE_TAG -t $IMAGE_URL:$IMAGE_TAG .
+  post_build:
+    commands:
+      - docker push $IMAGE_URL
