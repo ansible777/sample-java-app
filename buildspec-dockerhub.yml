@@ -2,11 +2,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo $DOCKER_USER
-      - docker login --username $DOCKER_USER --password $DOCKER_PWD
+      - echo $Docker_user
+      - docker login --username $Docker_user --password $Docker_pwd
   build:
     commands:
-      - docker build -t $IMAGE_URL:$IMAGE_TAG .
+      - docker build -t $Image_url:$Image_tag .
   post_build:
     commands:
-      - docker push $IMAGE_URL
+      - docker push $Image_url
