@@ -4,10 +4,10 @@ phases:
     commands:
       - docker version
       - $(aws ecr get-login --no-include-email)
-      - docker pull $IMAGE_URL:$IMAGE_TAG || true
+      - docker pull $Image_url:$Image_tag || true
   build:
     commands:
-      - docker build --cache-from $IMAGE_URL:$IMAGE_TAG -t $IMAGE_URL:$IMAGE_TAG .
+      - docker build --cache-from $Image_url:$Image_tag -t $Image_url:$Image_tag .
   post_build:
     commands:
-      - docker push $IMAGE_URL
+      - docker push $Image_url
