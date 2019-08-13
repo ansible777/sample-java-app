@@ -13,7 +13,7 @@ public class SampleController {
     }
     @GetMapping("sample/job/{job}")
     public ResponseEntity<String> sampleJob(@PathVariable("job") String job){
-       System.out.println("job");
+      
        return ResponseEntity.ok("your job  :     "+job);
     }
     
