@@ -15,4 +15,9 @@ public class SampleController {
     public ResponseEntity<String> sampleJob(@PathVariable("job") String job){
         return ResponseEntity.ok("your job  :     "+job);
     }
+    @GetMapping("hello/{name}")
+    public ResponseEntity<String> hello(@PathVariable("name") String name){
+        return ResponseEntity.ok("hello    :     "+name);
+    }
+
 }
