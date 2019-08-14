@@ -26,7 +26,7 @@ public class SampleController {
     }
     @GetMapping("goodMorning/{name}")
     public ResponseEntity<String> goodMorning(@PathVariable("name") String name){
-        return ResponseEntity.ok("hai  good morning  :     "+name);
+        return ResponseEntity.ok("hai  god morning  :     "+name);
     }
 
 }
