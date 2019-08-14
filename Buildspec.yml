@@ -7,7 +7,7 @@ phases:
       - docker pull $IMAGE_URL:$IMAGE_TAG || true
   build:
     commands:
-      - docker build --cache-from $IMAGE_URL:$IMAGE_TAG -t $IMAGE_URL:$IMAGE_TAG .
+      - docker build --cache-from $IMAGE_URL:$IMAGE_TAG -t $IMAGE_URL:$IMAGE_URL .
   post_build:
     commands:
       - docker push $IMAGE_URL

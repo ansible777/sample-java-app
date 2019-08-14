@@ -13,12 +13,16 @@ public class SampleController {
     }
     @GetMapping("sample/job/{job}")
     public ResponseEntity<String> sampleJob(@PathVariable("job") String job){
-        return ResponseEntity.ok("your job  :     "+job);
+      
+       return ResponseEntity.ok("your job  :     "+job);
     }
     @GetMapping("hello/{name}")
     public ResponseEntity<String> hello(@PathVariable("name") String name){
         return ResponseEntity.ok("hello    :     "+name);
     }
-
+    @GetMapping("hai/{name}")
+    public ResponseEntity<String> hai(@PathVariable("name") String name){
+        return ResponseEntity.ok("hai    :     "+name);
+    }
 
 }
