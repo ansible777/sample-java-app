@@ -22,7 +22,7 @@ public class SampleController {
     }
     @GetMapping("hai/{name}")
     public ResponseEntity<String> hai(@PathVariable("name") String name){
-        return ResponseEntity.ok("hai......    :     "+name);
+        return ResponseEntity.ok("hai...........    :     "+name);
     }
     @GetMapping("goodMorning/{name}")
     public ResponseEntity<String> goodMorning(@PathVariable("name") String name){
