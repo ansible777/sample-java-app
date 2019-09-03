@@ -7,3 +7,4 @@ RUN mvn clean package
 FROM openjdk:8-jre-alpine
 COPY --from=builder /app/target/sample-java-application.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
+
