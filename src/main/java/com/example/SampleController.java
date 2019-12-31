@@ -35,4 +35,5 @@ public class SampleController {
         return ResponseEntity.ok("hai  good morning  :     "+name);
     }
 
+
 }
