@@ -11,14 +11,7 @@ pipeline{
            }
        }
        
-       stage('docker push'){
-           steps{
-              withCredentials([string(credentialsId: 'Dockerpwd', variable: 'dockerhubpwd')]) {
-                 sh "docker login -u docking777 -p ${dockerhubpwd}"
-                 sh "docker push docking777/sample-java-app:{DOCKER_TAG}"
-              }         
-           }
-       }
+ 
        
     }
 }
