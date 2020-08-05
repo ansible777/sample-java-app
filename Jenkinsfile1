@@ -6,7 +6,6 @@ pipeline{
    stages{
    
        stage('build Docker image'){
-       
            steps{
               sh "docker build . -t docking777/sample-java-app:{DOCKER_TAG}"
            }
