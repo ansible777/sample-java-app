@@ -3,8 +3,9 @@ pipeline{
    stages{
       stage('checking'){
          steps{
-           echo "jenkinsfile testing for check"
-         }
+            git credentialsId: 'githubint', url: 'https://github.com/ansible777/sample-java-app.git'
+         }   
+         
       }
    }
 
