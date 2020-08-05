@@ -1,11 +1,9 @@
-pipeline {
-   
-   
-   stages {
-      stage { 
-          echo "checking jenkinsfile"
+pipeline{
+   agent any
+   stages{
+      stage('checking'){
+         echo "jenkinsfile testing for check"
       }
-      
    }
 }   
-   
+  
