@@ -1,0 +1,32 @@
+pipeline{
+   agent any
+   environment{
+       DOCKER_TAG = getDockerTag()
+   }
+   stages{
+   
+       stage('build Docker image'){
+       
+           steps{
+              sh "docker build -t docking777/sample-java-app:{DOCKER_TAG} ."
+           }
+       }
+       
+       stage('docker push'){
+           steps{
+              withCredentials([string(credentialsId: 'Dockerpwd', variable: 'dockerhubpwd')]) {
+                 sh "docker login -u docking777 -p ${dockerhubpwd}"
+                 sh "docker push docking777/sample-java-app:{DOCKER_TAG}"
+              }         
+           }
+       }
+       
+    }
+}
+def getDockerTag(){
+    def tag = sh script: 'git rev-parse HEAD', returnStdout: true
+    return tag
+}    
+    
+    
+                            
