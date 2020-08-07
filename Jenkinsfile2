@@ -1,1 +1,32 @@
+pipline {
+   agent any
+   tools {
+      maven 'maven3'
+   }
+   stages{
+      stage('build with maven'){
+        sh "mvn clean package"
+      }
+      stage('upload artifacts to nexus'){
+        nexusArtifactUploader artifacts: [
+           [
+              artifactId: 'sample-java-application',
+              classifier: '',
+              file: 'target/sample-java-application-0.0.1.jar',
+              type: 'jar'
+           ]
+        ],
+        credentialsId: 'nexus3',
+        groupId: 'com.example',
+        nexusUrl: '192.168.1.4:8081',
+        nexusVersion: 'nexus3',
+        protocol: 'http',
+        repository: 'sample-java-application-release',
+        version: '0.0.1'
+      }
+
+
+   }
+
+}
 
