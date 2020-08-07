@@ -18,7 +18,7 @@ pipeline {
               [
                 artifactId: 'sample-java-application',
                 classifier: '',
-                file: 'target/sample-java-application.jar',
+                file: "target/sample-java-application-${mavenPom.version}.jar",
                 type: 'jar'
               ]
            ],
