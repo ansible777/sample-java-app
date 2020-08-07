@@ -16,7 +16,7 @@ pipeline {
                [
                  artifactId: 'sample-java-application',
                  classifier: '',
-                 file: 'target/sample-java-application-0.0.1.jar',
+                 file: 'target/sample-java-application.jar',
                  type: 'jar'
                ]
             ],
