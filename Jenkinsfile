@@ -1,24 +1,26 @@
 pipeline{
-   agent any
-   environment{
+  agent any
+  environment{
       PATH = "/usr/share/maven/bin:$PATH"
-   }   
-   stages{
+  }
+  stages{
       stage('checking'){
-         steps{
-            git credentialsId: 'githubint', url: 'https://github.com/ansible777/sample-java-app.git'
-         }   
-         
-      }
-      stage('build'){
-         steps{
+          steps{
             sh "mvn clean package"
-         }
-      }   
-   }
+
+          }
+      }
+      stage('build') {
+          steps{
+            withSonarQubeEnv('sonarqube') {
+                sh "mvn sonar:sonar"
+            }
+
+          }
+      }
+  }
 
 }
-   
-   
+
    
   
