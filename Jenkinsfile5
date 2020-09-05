@@ -1,25 +1,27 @@
 pipeline{
   stages{
       stage('checking'){
+          steps{
+             git credentialsId: 'githubint', url: 'https://github.com/ansible777/sample-java-app.git'
 
-            git credentialsId: 'githubint', url: 'https://github.com/ansible777/sample-java-app.git'
-
-
+          }
       }
       stage('build') {
+          steps{
 
                 def mvnHome = tool name: 'maven3' , type: 'maven'
                 sh "${mvnHome}/bin/mvn package"
-
+          }
       }
       stage('sonarqube analysis'){
+          steps{
 
                 def mvnHome = tool name: 'maven3' , type: 'maven'
                    withSonarQubeEnv('sonarqube') {
                       sh "${mvnHome}/bin/mvn sonar:sonar"
                    }
-
+          }
       }
-  } 
+  }
 
 }
