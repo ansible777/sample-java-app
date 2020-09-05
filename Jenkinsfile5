@@ -1,4 +1,5 @@
-node{
+pipeline{
+  stages{
       stage('checking'){
 
             git credentialsId: 'githubint', url: 'https://github.com/ansible777/sample-java-app.git'
@@ -19,6 +20,6 @@ node{
                    }
 
       }
-   
+  } 
 
 }
