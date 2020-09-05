@@ -2,12 +2,7 @@ pipeline{
   agent any
   environment{
       PATH = "/usr/share/maven/bin:$PATH"
-  } 
-  tools {
-      jdk 'java8'
   }
-  
-  
   stages{
       stage('checking'){
           steps{
@@ -17,14 +12,14 @@ pipeline{
       }
       stage('build') {
           steps{
-            withSonarQubeEnv('sonarqube') {
-                sh "mvn sonar:sonar"
-            }
+
+            sh "mvn sonar:sonar \
+               -Dsonar.projectKey=javahometechapp \
+               -Dsonar.host.url=http://localhost:9000 \
+               -Dsonar.login=141c55f6c1688974912b86d2e8bdca578d37541d"
 
           }
       }
   }
 
 }
-
-   
